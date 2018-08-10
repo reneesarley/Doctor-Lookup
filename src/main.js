@@ -17,14 +17,14 @@ $(document).ready(function(){
     promiseGetDoctors.then(function(response) {
       console.log("the get doctor promise is running");
       let body = JSON.parse(response);
+      $("#searchResults").append(`<h3>Doctors matching your search for ${medicalIssue}</h3><div id="foundDoctors"></div>`)
       console.log(`the length of the arry is ${body.data.length}`)
       for (let i = 0; i<=body.data.length; i++){
         console.log(body.data[i]);
         console.log(`the first name is ${body.data[i].profile.first_name}`);
+        $("#foundDoctors").append(`<div id="doctor${i}><h4>${body.data[i].profile.first_name} ${body.data[i].profile.last_name}</h4><div id="practices${i}"></div>`);
       }
       // should include first name, last name, address, phone number, website and whether or not the doctor is accepting new patients
-      // $('.showHumidity').text(`The humidity in ${city} is ${body.main.humidity}%`);
-      // $('.showTemp').text(`The temperature in Kelvins is ${body.main.temp} degrees.`);
     }, function(error) {
       $('.showErrors').text(`There was an error processing your request: ${error.message}`);
     });
