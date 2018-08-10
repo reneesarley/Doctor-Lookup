@@ -6,22 +6,25 @@
   * It could include a short description of what each does for you
 
 2. Specs
-  * Spec 1: Description, input, output.
-  * Spec 2: Description, input, output.
+  * Spec 1: A user will be able to enter a medical issue to receive a list of doctors in the Portland area that fit the search query, input: sore throat, output: doctor's details, first name, last name, address, phone number, website and whether or not the doctor is accepting new patients
+  * Spec 2: A user will be able to to enter a name to receive a list of doctors in the Portland area that fit the search query., input: string of name, output: list of doctors which will include doctor's details.
+  * Spec 3: If the API call results in an error (any message not a 200 OK), the application should return a notification that states what the error is, output: .
+  * Spec 4: If query returns no results there will be a message stating no results found, output: "no results found"
 
-3. Integration
-  * Initial routes or index pages with all dependencies in Controller/index.html head
-  * Template/html page for ...
-  * Template/html page for ...
-  * Template/html page for ... (one for each route/integrated user story)
-  * Display...
-  * Integrate feature that...
+3. Steps
+  * create API account, get key
+  * read API documentation
+  * test API connection through postman or curl
+  * setup business logic for API call
 
-4. UX/UI
+4. Integration
+  * n/a
+
+5. UX/UIß
   * Include and modify bootstrap/materialize/Sass etc.
   * Develop custom style
 
-5. Polish
+6. Polish
   * Refactor minor portion of...
   * Delete unused...
   * Make README awesome
