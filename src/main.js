@@ -11,7 +11,6 @@ $(document).ready(function(){
     $('#searchResults').text("");
     let medicalIssue = $("#medicalIssue").val();
     let doctorsName = $("#doctorsName").val();
-    console.log(`name = ${doctorsName} and issue = ${medicalIssue}` );
     $("#medicalIssue").val("");
     $("#doctorsName").val("");
     let betterDoctorQuery = new BetterDoctorQuery();
@@ -31,9 +30,8 @@ $(document).ready(function(){
             for (let j = 0; j<body.data[i].practices.length; j++){
               let practiceName = body.data[i].practices[j].name;
               let website = body.data[i].practices[j].website === undefined ? "No website listed" : body.data[i].practices[j].website;
-              console.log(website);
               let newPatients = (body.data[i].practices[j].accepts_new_patients ? "Currently accepting new patients." : "This practice is not currently accepting new patients.")
-              let address = `${body.data[i].practices[j].visit_address.street} ${body.data[i].practices[j].visit_address.street2} ${body.data[i].practices[j].visit_address.city} ${body.data[i].practices[j].visit_address.state} ${body.data[i].practices[j].visit_address.zip}`;
+              let address = `${body.data[i].practices[j].visit_address.street} ` + `${body.data[i].practices[j].visit_address.street2 === undefined ? "" : body.data[i].practices[j].visit_address.street2}` + `${body.data[i].practices[j].visit_address.city} ${body.data[i].practices[j].visit_address.state} ${body.data[i].practices[j].visit_address.zip}`;
               let phone = body.data[i].practices[j].phones[0].number;
               $(`#practicesFor${i}`).append(`<div id="practice${j}For${i}"><h6 >${practiceName}</h6><ul id="practice${j}For${i}List"></ul></div>`);
               $(`#practice${j}For${i}List`).append(`<li>${website}</li><li>${newPatients}</li><li>${address}</li><li>Phone: ${phone}</li>`);
