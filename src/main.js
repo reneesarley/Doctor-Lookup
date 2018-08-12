@@ -8,6 +8,7 @@ import { BetterDoctorQuery } from './betterDoctorQuery.js'
 $(document).ready(function(){
   $("#doctorLookup").submit(function(e){
     e.preventDefault();
+    $('#searchResults').text("");
     let medicalIssue = $("#medicalIssue").val();
     let doctorsName = $("#doctorsName").val();
     console.log(`name = ${doctorsName} and issue = ${medicalIssue}` );
