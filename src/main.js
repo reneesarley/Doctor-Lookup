@@ -35,7 +35,7 @@ $(document).ready(function(){
               let phone = body.data[i].practices[j].phones[0].number;
               $(`#practicesFor${i}`).append(`<div id="practice${j}For${i}"><h6 >${practiceName}</h6><ul id="practice${j}For${i}List"></ul></div>`);
               $(`#practice${j}For${i}List`).append(`<li>${website}</li><li>${newPatients}</li><li>${address}</li><li>Phone: ${phone}</li>`);
-              // $(`#practice${j}For${i}List`).append(`<li>${website}</li><li>${newPatients}</li><li>${address}</li><li>Phone: ${phone}</li>`);
+              
             }
         }
       }
