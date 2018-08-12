@@ -22,7 +22,7 @@ $(document).ready(function(){
       for (let i = 0; i<=body.data.length; i++){
         console.log(body.data[i]);
         console.log(`the first name is ${body.data[i].profile.first_name}`);
-        $("#foundDoctors").append(`<div id="doctor${i}><h4>${body.data[i].profile.first_name} ${body.data[i].profile.last_name}</h4><div id="practices${i}"></div>`);
+        $("#foundDoctors").append(`<div id="doctor${i}"><h4>${body.data[i].profile.first_name} ${body.data[i].profile.last_name}</h4><div id="practices${i}"></div>`);
       }
       // should include first name, last name, address, phone number, website and whether or not the doctor is accepting new patients
     }, function(error) {
