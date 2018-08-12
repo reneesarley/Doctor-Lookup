@@ -19,34 +19,26 @@ $(document).ready(function(){
       let body = JSON.parse(response);
       $("#searchResults").append(`<h3>Doctors matching your search for ${medicalIssue}</h3><div id="foundDoctors"></div>`)
       console.log(`the length of the arry is ${body.data.length}`)
-      for (let i = 0; i<=body.data.length; i++){
+      for (let i = 0; i<body.data.length; i++){
         console.log(body.data[i]);
-        console.log(`the first name is ${body.data[i].profile.first_name}`);
-        $("#foundDoctors").append(`<div id="doctor${i}"><h4>${body.data[i].profile.first_name} ${body.data[i].profile.last_name}</h4><div id="practices${i}"></div>`);
+        let doctor = `${body.data[i].profile.first_name} ${body.data[i].profile.last_name} ${body.data[i].profile.title}`
+        $("#foundDoctors").append(`<div id="doctor${i}"><h4>${doctor}</h4><h5 id="practicesFor${i}">Practices:</h5>`);
+          for (let j = 0; j<body.data[i].practices.length; j++){
+            let practiceName = body.data[i].practices[j].name;
+            let website = body.data[i].practices[j].website;
+            let newPatients = (body.data[i].practices[j].accepts_new_patients ? "Currently accepting new patients." : "This practice is not currently accepting new patients.")
+            let address = `${body.data[i].practices[j].visit_address.street} ${body.data[i].practices[j].visit_address.street2} ${body.data[i].practices[j].visit_address.city} ${body.data[i].practices[j].visit_address.state} ${body.data[i].practices[j].visit_address.zip}`;
+            let phone = body.data[i].practices[j].phones[0].number;
+            $(`#practicesFor${i}`).append(`<div id="practice${j}For${i}"><h6 >${practiceName}</h6></div>`);
+            console.log(`#practice${j}For${i}`);
+            $(`#practice${j}For${i}`).append(`<ul><li>${website}</li><li>${newPatients}</li><li>${address}</li><li>Phone: ${phone}</li></ul>`);
+            console.log("reached end of inner loop");
+          }
+        console.log("reached end of outer for loop");
       }
-      // should include first name, last name, address, phone number, website and whether or not the doctor is accepting new patients
     }, function(error) {
       $('.showErrors').text(`There was an error processing your request: ${error.message}`);
     });
   });
+
 });
-
-
-  // // let promiseGetConditions = betterDoctorQuery.getKnownConditions();
-  // promiseGetDoctors.then(function(response) {
-  //   let body = JSON.parse(response);
-  //   console.log("the get doctor promise is running");
-  //   console.log(body.data[1]);
-  //   // $('.showHumidity').text(`The humidity in ${city} is ${body.main.humidity}%`);
-  //   // $('.showTemp').text(`The temperature in Kelvins is ${body.main.temp} degrees.`);
-  // }, function(error) {
-  //   $('.showErrors').text(`There was an error processing your request: ${error.message}`);
-  // });
-  // promiseGetConditions.then(function(response) {
-  //   let body = JSON.parse(response);
-  //   console.log("the get conditions promise is running");
-  //   console.log(body.data.length);
-  //   console.log(body.data[0].name);
-  // }, function(error) {
-  //   $('.showErrors').text(`There was an error processing your request: ${error.message}`);
-  // });
