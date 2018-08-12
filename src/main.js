@@ -9,13 +9,14 @@ $(document).ready(function(){
   $("#doctorLookup").submit(function(e){
     e.preventDefault();
     let medicalIssue = $("#medicalIssue").val();
+    let doctorsName = $("#doctorsName").val();
+    console.log(`name = ${doctorsName} and issue = ${medicalIssue}` );
     $("#medicalIssue").val("");
+    $("#doctorsName").val("");
     let betterDoctorQuery = new BetterDoctorQuery();
-    let promiseGetDoctors = betterDoctorQuery.getDoctorsUsingQuery(medicalIssue);
-    console.log(medicalIssue);
+    let promiseGetDoctors = betterDoctorQuery.getDoctorsUsingQuery(medicalIssue, doctorsName);
 
     promiseGetDoctors.then(function(response) {
-      console.log("the get doctor promise is running");
       let body = JSON.parse(response);
       $("#searchResults").append(`<h3>Doctors matching your search for ${medicalIssue}</h3><div id="foundDoctors"></div>`)
       console.log(`the length of the arry is ${body.data.length}`)
