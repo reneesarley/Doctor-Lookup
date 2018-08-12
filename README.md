@@ -1,68 +1,46 @@
-## Planning
+  # _Doctor Lookup_
 
-1. Configuration/dependencies
-  * This should include ALL dependencies.
-  * It should also include WHERE they are defined and used in the project
-  * It could include a short description of what each does for you
+#### _Search for doctors in the Portland area, 8/12/18_
 
-2. Specs
+#### By _**Renee Sarley**_
+
+## Description
+
+_This application will allow the users to search for doctors in the Portland area. The search can be norrowed down by doctor name, medical condition needing to be treated, or both. The list is generated using the BetterDoctor API_
+
+## Setup/Installation Requirements
+
+* _Create an account with BetterDoctor API here: https://developer.betterdoctor.com/_
+* _Clone the GitHub repo for this application here: https://github.com/reneesarley/Doctor-Lookup.git_
+* _At the root level of the project folder create a file named .env_
+* _Find your BetterDoctor API credentials under My Account, Applications_
+* _In the .env file store your API credentials using the variable name 'exports.apiKey'_
+* _Install all packages - From the root level of the project folder run the terminal command $ npm install_
+* _Run the program - From the root level of the project folder run the terminal command $ npm install_
+
+## Specs
   * Spec 1: A user will be able to enter a medical issue to receive a list of doctors in the Portland area that fit the search query, input: sore throat, output: doctor's details, first name, last name, address, phone number, website and whether or not the doctor is accepting new patients
   * Spec 2: A user will be able to to enter a name to receive a list of doctors in the Portland area that fit the search query., input: string of name, output: list of doctors which will include doctor's details.
   * Spec 3: If the API call results in an error (any message not a 200 OK), the application should return a notification that states what the error is, output: .
   * Spec 4: If query returns no results there will be a message stating no results found, output: "no results found"
 
-3. Steps
-  * create API account, get key
-  * read API documentation
-  * test API connection through postman or curl
-  * setup business logic for API call
-
-4. Integration
-  * n/a
-
-5. UX/UIß
-  * Include and modify bootstrap/materialize/Sass etc.
-  * Develop custom style
-
-6. Polish
-  * Refactor minor portion of...
-  * Delete unused...
-  * Make README awesome
-
-  # _{Application Name}_
-
-#### _{Brief description of application}, {Date of current version}_
-
-#### By _**{List of contributors}**_
-
-## Description
-
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
-
-## Setup/Installation Requirements
-
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
-
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this app depends on?}_
-
 ## Known Bugs
 
-_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
+_There are no known bugs at this time._
 
 ## Support and contact details
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+_Email me with any questions._
 
 ## Technologies Used
 
-_{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
+* _BetterDoctor API_
+* _JavaScript_
+* _jQuery_
+* _Bootstrap_
 
 ### License
 
-*{Determine the license under which this application can be used.  See below for more details on licensing.}*
+*This software is licensed under the MIT License*
 
-Copyright (c) 2016 **_{List of contributors or company name}_**
+Copyright (c) 2016 **_Renee Sarley_**
