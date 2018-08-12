@@ -30,16 +30,15 @@ $(document).ready(function(){
           $("#foundDoctors").append(`<div id="doctor${i}"><h4>${doctor}</h4><h5 id="practicesFor${i}">Practices:</h5>`);
             for (let j = 0; j<body.data[i].practices.length; j++){
               let practiceName = body.data[i].practices[j].name;
-              let website = body.data[i].practices[j].website;
+              let website = body.data[i].practices[j].website === undefined ? "No website listed" : body.data[i].practices[j].website;
+              console.log(website);
               let newPatients = (body.data[i].practices[j].accepts_new_patients ? "Currently accepting new patients." : "This practice is not currently accepting new patients.")
               let address = `${body.data[i].practices[j].visit_address.street} ${body.data[i].practices[j].visit_address.street2} ${body.data[i].practices[j].visit_address.city} ${body.data[i].practices[j].visit_address.state} ${body.data[i].practices[j].visit_address.zip}`;
               let phone = body.data[i].practices[j].phones[0].number;
-              $(`#practicesFor${i}`).append(`<div id="practice${j}For${i}"><h6 >${practiceName}</h6></div>`);
-              console.log(`#practice${j}For${i}`);
-              $(`#practice${j}For${i}`).append(`<ul><li>${website}</li><li>${newPatients}</li><li>${address}</li><li>Phone: ${phone}</li></ul>`);
-              console.log("reached end of inner loop");
+              $(`#practicesFor${i}`).append(`<div id="practice${j}For${i}"><h6 >${practiceName}</h6><ul id="practice${j}For${i}List"></ul></div>`);
+              $(`#practice${j}For${i}List`).append(`<li>${website}</li><li>${newPatients}</li><li>${address}</li><li>Phone: ${phone}</li>`);
+              // $(`#practice${j}For${i}List`).append(`<li>${website}</li><li>${newPatients}</li><li>${address}</li><li>Phone: ${phone}</li>`);
             }
-          console.log("reached end of outer for loop");
         }
       }
     }, function(error) {
