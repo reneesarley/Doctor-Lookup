@@ -7,22 +7,22 @@
   <body>
     <div class="container">
       <h1>Doctor Lookup </h1>
-      <div  class="row">
-        <div class="col-6-md">
-          <form id="doctorLookupByIssue">
-            <label for="Medical Issue">Medical Issue</label>
-            <input type="text" id="medicalIssue" value="">
-            <button class="btn btn-success" type="submit" name="lookUpNewDoctor">Search</button>
-          </form>
-        </div>
-        <div class="col-6-md">
-          <form id="doctorLookupByName">
-            <label for="doctorName">Doctor's Name</label>
-            <input type="text" id="doctorsName" value="">
+      <h4>Search for doctor by medical issue and/or by doctor's name</h4>
+      <form id="doctorLookup">
+        <div class="row">
+          <div class="col-5-md">
+              <label for="Medical Issue">Medical Issue</label>
+              <input type="text" id="medicalIssue" value="">
+          </div>
+          <div class="col-5-md">
+              <label for="doctorName">Doctor's Name</label>
+              <input type="text" id="doctorsName" value="">
+          </div>
+          <div class="col-2-md">
             <button class="btn btn-success" type="submit" name="lookupDocByName">Search</button>
-          </form>
-        </div>
-    </div>
+          </div>
+      </div>
+    </form>
       <div id="searchResults">
       </div>
 
